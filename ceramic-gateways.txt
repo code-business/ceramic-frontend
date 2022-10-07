@@ -1,0 +1,5 @@
+Network	        Implementation	Mode	            URL	                                    Host
+
+Mainnet	        JS Ceramic	    Read-only	        https://gateway.ceramic.network	        3Box Labs
+Clay testnet	JS Ceramic	    Read-only	        https://gateway-clay.ceramic.network	3Box Labs
+Clay testnet	JS Ceramic	    Read/Write	        https://ceramic-clay.3boxlabs.com	    3Box Labsu
