@@ -77,6 +77,7 @@ function App() {
                 value={mainNetUrl}
                 control={<Radio />}
                 label="Main net"
+                disabled
               />
             </RadioGroup>
           </FormControl>
