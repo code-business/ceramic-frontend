@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/ceramic-frontend/static/css/main.ba17183d.css",
+    "main.js": "/ceramic-frontend/static/js/main.c4d9838b.js",
+    "static/js/27.8e6a0bbd.chunk.js": "/ceramic-frontend/static/js/27.8e6a0bbd.chunk.js",
+    "static/media/index.cjs": "/ceramic-frontend/static/media/index.20db254186dfe63a8a6d.cjs",
+    "static/media/resolver.cjs": "/ceramic-frontend/static/media/resolver.8341148696af66384426.cjs",
+    "index.html": "/ceramic-frontend/index.html"
+  },
+  "entrypoints": [
+    "static/css/main.ba17183d.css",
+    "static/js/main.c4d9838b.js"
+  ]
+}
