@@ -15,6 +15,7 @@ import { getCeramicData } from "../client";
 interface ItemProps {
   ceramicId: string;
   ceramicClient: CeramicClient;
+  setResponse: any;
 }
 
 function ModalBody({ ceramicId, ceramicClient }: any) {
@@ -53,14 +54,20 @@ function ModalBody({ ceramicId, ceramicClient }: any) {
   );
 }
 
-const Item: React.FC<ItemProps> = ({ ceramicId, ceramicClient }) => {
+const Item: React.FC<ItemProps> = ({ ceramicId, ceramicClient, setResponse }) => {
   const [open, setOpen] = React.useState<boolean>(false);
 
   const handleClose = () => setOpen(false);
 
+
+
   return (
     <>
-      <div style={{ width: "100%" }} onClick={() => setOpen(!open)}>
+      <div style={{ width: "100%" }} onClick={() => {
+        //setResponse(ceramicClient.context.did)
+        //console.log(ceramicClient.context.did);
+        
+        }}>
         {ceramicId}
       </div>
       <Dialog
