@@ -21,8 +21,7 @@ import React from "react";
 import { getAutheClient, getCeramicData } from "./client";
 import Item from "./components/Item";
 import { getCeramicIds } from "./helpers/getCeramicIds";
-import Backdrop from '@mui/material/Backdrop';
-
+import Backdrop from "@mui/material/Backdrop";
 
 const ceramicGateways = {
   mainNet: "https://gateway.ceramic.network",
@@ -31,8 +30,8 @@ const ceramicGateways = {
 
 export default function App() {
   // const app = useApp()
-  const [response, setResponse] =  React.useState<object>();
-  const[loading,setLoading] = React.useState<boolean>(false)
+  const [response, setResponse] = React.useState<object>();
+  const [loading, setLoading] = React.useState<boolean>(false);
   const [did, setDid] = React.useState<string>("");
   const [ceramicClientState, setCeramicClientState] =
     React.useState<CeramicClient>();
@@ -70,7 +69,7 @@ export default function App() {
       const resp = await getCeramicData(
         ceramicClientState as CeramicClient,
         ceranicId
-      );      
+      );
       setData(resp.content);
     } catch (error) {
       console.log("error", error);
@@ -197,7 +196,7 @@ export default function App() {
                 </RadioGroup>
               </FormControl>
             </Box>
-            
+
             {viewType === "search-id" ? (
               <>
                 <Box display="flex" flexDirection="row" gap={4} mt={5}>
@@ -226,38 +225,45 @@ export default function App() {
             ) : (
               <Box mt={5} className="d-flex">
                 <Grid container spacing={2}>
-                  <Grid item xs={8}>
-                  <List>
-                  {!ceramicIdsLoader ? (
-                    ceramicIds?.data?.map((id: string) => (
-                      <ListItem>
-                        <ListItemButton onClick={async ()=> {
-                            setLoading(true)
-                            let resp:any = await getCeramicData(ceramicClientState, id);
-                            console.log(resp.content);
+                  <Grid item xs={4}>
+                    <List style={{ overflowX: "auto" }}>
+                      {!ceramicIdsLoader ? (
+                        ceramicIds?.data?.map((id: string) => (
+                          <ListItem>
+                            <ListItemButton
+                              onClick={async () => {
+                                setLoading(true);
+                                let resp: any = await getCeramicData(
+                                  ceramicClientState,
+                                  id
+                                );
+                                console.log(resp.content);
 
-                            setResponse(resp.content);
-                            setLoading(false)
-                        }}>
-                          <Item
-                            ceramicClient={ceramicClientState}
-                            ceramicId={id}
-                            setResponse={setResponse}
-                          />
-                        </ListItemButton>
-                      </ListItem>
-                    ))
-                  ) : (
-                    <CircularProgress />
-                  )}
-                </List>
+                                setResponse(resp.content);
+                                setLoading(false);
+                              }}
+                            >
+                              <Item
+                                ceramicClient={ceramicClientState}
+                                ceramicId={id}
+                                setResponse={setResponse}
+                              />
+                            </ListItemButton>
+                          </ListItem>
+                        ))
+                      ) : (
+                        <CircularProgress />
+                      )}
+                    </List>
                   </Grid>
-                  <Grid item xs={4} style={{wordWrap:'break-word'}}>
-                  <Box sx={{ marginTop: "2rem", overflowX: "auto" }}>
-                    {loading?<CircularProgress />:<ReactJson src={(response) as object}/> }
-
-                    
-                  </Box>
+                  <Grid item xs={8} style={{ wordWrap: "break-word" }}>
+                    <Box sx={{ marginTop: "2rem", overflowX: "auto" }}>
+                      {loading ? (
+                        <CircularProgress />
+                      ) : (
+                        <ReactJson src={response as object} />
+                      )}
+                    </Box>
                   </Grid>
                 </Grid>
                 <Button
