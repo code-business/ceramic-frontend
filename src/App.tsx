@@ -21,7 +21,6 @@ import React from "react";
 import { getAutheClient, getCeramicData } from "./client";
 import Item from "./components/Item";
 import { getCeramicIds } from "./helpers/getCeramicIds";
-import Backdrop from "@mui/material/Backdrop";
 
 const ceramicGateways = {
   mainNet: "https://gateway.ceramic.network",
