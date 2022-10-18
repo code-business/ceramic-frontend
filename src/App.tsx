@@ -124,7 +124,7 @@ export default function App() {
 
   return (
     <>
-      <Container maxWidth="md">
+      <Container maxWidth="lg">
         <Box mt={4}>
           <FormControl>
             <FormLabel id="demo-radio-buttons-group-label">
@@ -224,7 +224,7 @@ export default function App() {
             ) : (
               <Box mt={5} className="d-flex">
                 <Grid container spacing={2}>
-                  <Grid item xs={4}>
+                  <Grid item xs={6}>
                     <List style={{ overflowX: "auto" }}>
                       {!ceramicIdsLoader ? (
                         ceramicIds?.data?.map((id: string) => (
@@ -255,12 +255,12 @@ export default function App() {
                       )}
                     </List>
                   </Grid>
-                  <Grid item xs={8} style={{ wordWrap: "break-word" }}>
+                  <Grid item xs={6} style={{ wordWrap: "break-word" }}>
                     <Box sx={{ marginTop: "2rem", overflowX: "auto" }}>
                       {loading ? (
                         <CircularProgress />
                       ) : (
-                        <ReactJson src={response as object} />
+                        response && <ReactJson src={response as object} />
                       )}
                     </Box>
                   </Grid>
