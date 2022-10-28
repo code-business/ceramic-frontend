@@ -265,24 +265,28 @@ export default function App() {
                     </Box>
                   </Grid>
                 </Grid>
-                <Button
-                  onClick={async () => {
-                    if (ceramicIds?.nextToken) {
-                      try {
-                        setCeramicIdsLoader(true);
-                        /* handle next */
-                        const resp = await getCeramicIds(ceramicIds.nextToken);
-                        setCeramicIds(resp);
-                      } catch (error) {
-                        console.log(error);
-                      } finally {
-                        setCeramicIdsLoader(false);
+                {
+                  ceramicIds?.nextToken && <Button
+                    onClick={async () => {
+                      if (ceramicIds?.nextToken) {
+                        try {
+                          setCeramicIdsLoader(true);
+                          /* handle next */
+                          const resp = await getCeramicIds(ceramicIds.nextToken);
+                          setCeramicIds(resp);
+                        } catch (error) {
+                          console.log(error);
+                        } finally {
+                          setCeramicIdsLoader(false);
+                        }
                       }
-                    }
-                  }}
-                >
-                  next
-                </Button>
+                    }}
+                  >
+                    next
+                  </Button>
+
+                }
+
               </Box>
             )}
           </>
